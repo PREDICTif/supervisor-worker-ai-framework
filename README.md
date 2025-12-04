@@ -60,7 +60,7 @@ Ask your AI assistant:
 
 ```
 Initialize the supervisor-worker AI framework from:
-https://github.com/YOUR_USERNAME/supervisor-worker-ai-framework
+https://github.com/PREDICTif/supervisor-worker-ai-framework
 
 Create the framework in ./docs/SUPERVISOR/ folder.
 ```
