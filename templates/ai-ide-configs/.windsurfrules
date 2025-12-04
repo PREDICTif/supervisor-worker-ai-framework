@@ -1,0 +1,90 @@
+# Windsurf Rules for {{PROJECT_NAME}}
+# These rules guide Cascade AI behavior in Windsurf IDE
+
+## Project Context
+
+Project: {{PROJECT_NAME}}
+Type: {{PROJECT_TYPE}}  
+Tech Stack: {{TECH_STACK}}
+
+## AI Framework Integration
+
+This project uses the Supervisor-Worker AI Framework.
+- Framework location: docs/SUPERVISOR/
+- Always check CURRENT-STATUS.md before major work
+- Follow role protocols (SUPERVISOR or WORKER)
+
+## Role Initialization
+
+To initialize as SUPERVISOR:
+- Read docs/SUPERVISOR/SUPERVISOR-FRAMEWORK.md
+- Review CURRENT-STATUS.md and DELEGATION-TRACKER.md
+- Plan and delegate tasks
+
+To initialize as WORKER:
+- Read docs/SUPERVISOR/WORKER-FRAMEWORK.md
+- Find your assigned task in DELEGATION-TRACKER.md
+- Execute within scope, report progress
+
+## Coding Standards
+
+### Language: {{PRIMARY_LANGUAGE}}
+
+{{LANGUAGE_SPECIFIC_RULES}}
+
+### General Principles
+
+- Follow existing codebase patterns
+- Write clean, readable code
+- Keep functions focused and small
+- Handle errors gracefully
+- Write testable code
+
+### Naming Conventions
+
+{{NAMING_CONVENTIONS}}
+
+## Testing
+
+- Test command: {{TEST_COMMAND}}
+- Write tests for new features
+- Verify no regressions
+
+## Documentation Updates
+
+After making changes:
+1. Update CHANGELOG.md (newest entries first)
+2. Update README if needed
+3. Update CURRENT-STATUS.md if project state changed
+4. Add to DECISIONS-LOG.md if architectural decision made
+
+## Restrictions
+
+- Don't modify {{PROTECTED_FILES}} without explicit request
+- Don't add new dependencies without justification
+- Don't change established patterns without documenting why
+- Don't skip handover documentation
+
+## Session Workflow
+
+### Starting Work
+1. Read CURRENT-STATUS.md for project state
+2. Check DELEGATION-TRACKER.md for active tasks
+3. Initialize as appropriate role
+
+### During Work
+- Stay within assigned scope
+- Report blockers immediately
+- Document decisions
+
+### Ending Session
+- Update status documents
+- Create handover if incomplete
+- Summarize what was done
+
+---
+
+# Project-Specific Rules
+
+{{CUSTOM_RULES}}
+

@@ -1,22 +1,40 @@
 # AI Supervisor-Worker Framework
 
-A universal framework for AI-assisted software development using a **Supervisor-Worker** pattern. This framework enables structured collaboration between AI assistants, with clear role definitions, task delegation protocols, and quality assurance processes.
+> **⚠️ What This Is**: A **methodology and workflow framework** for managing multiple AI coding assistants in AI-powered IDEs like **Cursor**, **Windsurf**, **Cline**, etc. This is **NOT** a library or SDK for building AI agents into your applications.
+
+A structured approach for AI-assisted software development using a **Supervisor-Worker** pattern. This framework enables organized collaboration between AI assistants across multiple chat sessions, with clear role definitions, task delegation protocols, and quality assurance processes.
 
 ## 🎯 Purpose
 
-When working on complex software projects with AI assistants, having a structured approach dramatically improves:
+When working on complex software projects with AI coding assistants in modern AI IDEs, having a structured methodology dramatically improves:
 
-- **Consistency** - Same patterns across all tasks
+- **Consistency** - Same patterns across all tasks and chat sessions
 - **Quality** - Clear success criteria and validation
 - **Traceability** - Complete history of decisions and progress
 - **Handovers** - Seamless transitions between sessions/assistants
-- **Scalability** - Delegate tasks to multiple workers efficiently
+- **Scalability** - Delegate tasks to multiple AI workers efficiently
+- **Context Preservation** - AI assistants can pick up work without losing context
+
+## 💡 Who Is This For?
+
+This framework is designed for:
+
+- **Developers** using AI-powered IDEs (Cursor, Windsurf, Cline, etc.)
+- **Teams** coordinating multiple AI chat sessions on the same project
+- **Solo developers** who want structured AI-assisted workflows
+- **Anyone** who finds their AI coding sessions becoming chaotic or losing context
+
+This framework is **NOT** for:
+
+- Building AI agents into your application
+- Creating autonomous AI systems
+- LLM API integration or AI/ML development
 
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      SUPERVISOR                              │
+│                    SUPERVISOR (AI Chat #1)                  │
 │  • Strategic planning & oversight                           │
 │  • Task delegation & coordination                           │
 │  • Quality assurance & validation                           │
@@ -26,12 +44,26 @@ When working on complex software projects with AI assistants, having a structure
         ┌────────────┼────────────┐
         ▼            ▼            ▼
 ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│   WORKER 1   │ │   WORKER 2   │ │   WORKER N   │
+│ WORKER #1    │ │ WORKER #2    │ │ WORKER #N    │
+│ (AI Chat #2) │ │ (AI Chat #3) │ │ (AI Chat #N) │
 │  • Execute   │ │  • Execute   │ │  • Execute   │
 │  • Report    │ │  • Report    │ │  • Report    │
 │  • Deliver   │ │  • Deliver   │ │  • Deliver   │
 └──────────────┘ └──────────────┘ └──────────────┘
 ```
+
+## 🤖 Supported AI IDEs
+
+This framework works with any AI-powered IDE that supports chat-based coding assistance:
+
+| IDE | Status | Notes |
+|-----|--------|-------|
+| **Cursor** | ✅ Tested | Primary development environment |
+| **Windsurf** | ✅ Compatible | Works with Cascade |
+| **Cline** | ✅ Compatible | VS Code extension |
+| **Continue** | ✅ Compatible | VS Code/JetBrains |
+| **GitHub Copilot Chat** | ✅ Compatible | Limited multi-chat |
+| **Other AI IDEs** | 🔄 Should work | Any chat-based AI assistant |
 
 ## 📦 Framework Contents
 
@@ -49,14 +81,18 @@ supervisor-worker-ai-framework/
     ├── DELEGATION-TRACKER.md      # Task tracking
     ├── THINKING-LOG.md            # Strategic decisions
     ├── DECISIONS-LOG.md           # Technical decisions
-    └── SESSION-SUMMARY.md         # Session handover template
+    ├── SESSION-SUMMARY.md         # Session handover template
+    └── ai-ide-configs/            # AI IDE configuration templates
+        ├── CLAUDE.md              # Claude/Anthropic instructions
+        ├── context.md             # Project context for AI
+        └── .cursorrules           # Cursor-specific rules
 ```
 
 ## 🚀 Quick Start
 
 ### For Humans
 
-Ask your AI assistant:
+Open your AI IDE (Cursor, Windsurf, etc.) and ask your AI assistant:
 
 ```
 Initialize the supervisor-worker AI framework from:
@@ -70,18 +106,20 @@ Create the framework in ./docs/SUPERVISOR/ folder.
 When asked to initialize this framework:
 
 1. Read `INSTALLATION.md` for complete setup instructions
-2. Create `docs/SUPERVISOR/` directory in target project
-3. Copy and customize templates for the specific project
-4. Initialize as either SUPERVISOR or WORKER based on user request
+2. Gather project information (name, type, tech stack)
+3. Create `docs/SUPERVISOR/` directory in target project
+4. Generate AI IDE configuration files (CLAUDE.md, .cursorrules, etc.)
+5. Copy and customize templates for the specific project
+6. Initialize as either SUPERVISOR or WORKER based on user request
 
 ## 🎭 Roles
 
-### Supervisor
+### Supervisor (Typically: Main AI Chat Session)
 - **When to use**: Starting new projects, planning features, coordinating multiple tasks
 - **Initialize**: "Initialize yourself as SUPERVISOR"
 - **Responsibilities**: Plan, delegate, validate, document
 
-### Worker
+### Worker (Typically: Separate AI Chat Sessions)
 - **When to use**: Executing specific, well-defined tasks
 - **Initialize**: "Initialize yourself as WORKER"
 - **Responsibilities**: Execute, report, deliver, handover
@@ -98,28 +136,32 @@ When asked to initialize this framework:
 ## 🔄 Typical Workflow
 
 ```
-1. User: "Initialize as SUPERVISOR"
+1. User opens AI IDE, starts new chat
    ↓
-2. Supervisor reads CURRENT-STATUS, plans work
+2. User: "Initialize as SUPERVISOR"
    ↓
-3. Supervisor creates delegation prompts
+3. Supervisor reads CURRENT-STATUS, plans work
    ↓
-4. User: Opens new chat, "Initialize as WORKER"
+4. Supervisor creates delegation prompts for tasks
    ↓
-5. Worker executes task, reports progress
+5. User: Opens NEW chat session, "Initialize as WORKER"
    ↓
-6. Worker delivers completion report
+6. Worker executes task, reports progress
    ↓
-7. Supervisor validates and updates status
+7. Worker delivers completion report
+   ↓
+8. User returns to Supervisor chat
+   ↓
+9. Supervisor validates and updates status
 ```
 
 ## ✅ Success Criteria
 
 A well-implemented framework should enable:
 
-- [ ] Any AI assistant can pick up work from any point
+- [ ] Any AI chat session can pick up work from any point
 - [ ] Clear history of what was done and why
-- [ ] No duplicate or conflicting work
+- [ ] No duplicate or conflicting work across chat sessions
 - [ ] Consistent code quality across all contributions
 - [ ] Efficient task parallelization when possible
 
@@ -145,7 +187,7 @@ MIT License - Use freely in any project.
 
 ---
 
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Created**: December 2024  
-**Inspiration**: Developed through practical experience on TSL Portal V3 project
-
+**Last Updated**: December 2025  
+**Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE

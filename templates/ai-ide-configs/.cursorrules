@@ -1,0 +1,108 @@
+# Cursor Rules for {{PROJECT_NAME}}
+# These rules guide AI behavior in Cursor IDE
+
+## Project Context
+
+Project: {{PROJECT_NAME}}
+Type: {{PROJECT_TYPE}}
+Tech Stack: {{TECH_STACK}}
+
+## AI Framework Integration
+
+This project uses the Supervisor-Worker AI Framework.
+- Framework location: docs/SUPERVISOR/
+- Always check CURRENT-STATUS.md before major work
+- Follow role protocols (SUPERVISOR or WORKER)
+
+## Coding Standards
+
+### Language: {{PRIMARY_LANGUAGE}}
+
+{{LANGUAGE_SPECIFIC_RULES}}
+
+### General Rules
+
+- Follow existing patterns in the codebase
+- Keep functions small and focused (< 50 lines preferred)
+- Use meaningful variable and function names
+- Add JSDoc/docstrings for public APIs
+- Handle errors appropriately
+- Write testable code
+
+### File Naming
+
+{{FILE_NAMING_CONVENTIONS}}
+
+### Import Organization
+
+{{IMPORT_ORGANIZATION_RULES}}
+
+## Testing Requirements
+
+- Write tests for new functionality
+- Run existing tests before committing
+- Test command: {{TEST_COMMAND}}
+
+## Documentation
+
+- Update CHANGELOG.md after changes (newest first)
+- Update README if adding features
+- Document complex logic with comments
+- Keep docs/SUPERVISOR/ status current
+
+## What to Avoid
+
+- Don't modify core configuration without discussion
+- Don't add dependencies without justification
+- Don't change architecture patterns unilaterally
+- Don't skip the completion checklist
+
+## Preferred Patterns
+
+### {{PATTERN_1_NAME}}
+{{PATTERN_1_DESCRIPTION}}
+
+### {{PATTERN_2_NAME}}
+{{PATTERN_2_DESCRIPTION}}
+
+## Common Tasks
+
+### Adding a new feature
+1. Check DELEGATION-TRACKER for conflicts
+2. Follow existing patterns
+3. Write tests
+4. Update documentation
+5. Update CHANGELOG
+
+### Fixing a bug
+1. Write a failing test first
+2. Fix the bug
+3. Verify test passes
+4. Check for regressions
+5. Update CHANGELOG
+
+### Refactoring
+1. Ensure tests exist
+2. Make incremental changes
+3. Run tests after each change
+4. Document in DECISIONS-LOG if significant
+
+## Session Protocol
+
+Start of session:
+- Read docs/SUPERVISOR/CURRENT-STATUS.md
+- Check DELEGATION-TRACKER for active work
+- Understand current priorities
+
+End of session:
+- Update CURRENT-STATUS if changed
+- Update CHANGELOG if code changed
+- Create handover notes if incomplete
+
+---
+
+# Custom Rules Below
+# Add project-specific rules here
+
+{{CUSTOM_RULES}}
+
