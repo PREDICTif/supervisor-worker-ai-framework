@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **December 4, 2025**: Encore Loyalty AI Feedback System case study in examples
+  - Added comprehensive real-world example to `examples/README.md`
+  - Documented 11-phase development lifecycle with 25+ worker prompts
+  - Included sample CLAUDE.md, worker prompts, and completion reports
+  - Added key metrics: 61,803 feedback items, 44+ API endpoints, 98% completion
+  - Documented lessons learned and success factors
+
 - **December 4, 2025**: AI IDE configuration templates
   - Created `templates/ai-ide-configs/CLAUDE.md` - Claude/Anthropic instructions template
   - Created `templates/ai-ide-configs/context.md` - Project context template
