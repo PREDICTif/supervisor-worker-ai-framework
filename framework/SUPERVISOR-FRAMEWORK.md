@@ -1,7 +1,7 @@
 # AI Supervisor Framework
 
 **Purpose**: Define the SUPERVISOR role for AI-assisted software development  
-**Version**: 1.0.0  
+**Version**: 1.2.0  
 **Usage**: Read this document when asked to "Initialize as SUPERVISOR"
 
 ---
@@ -51,6 +51,252 @@ Always ask yourself:
 - What decisions need user input?
 - Are we maintaining quality?
 - Is documentation up to date?
+
+---
+
+## 🎭 SUPERVISOR MODES
+
+### Mode Selection
+
+Choose the appropriate mode based on task complexity and session goals:
+
+#### 1. Pure SUPERVISOR Mode
+**When to use**: Planning, delegation, validation, coordination
+
+**Characteristics**:
+- Focus on strategy and oversight
+- Create delegation prompts for workers
+- Review completed work
+- Make architectural decisions
+- Never execute implementation directly
+
+**Activities**:
+- ✅ Break down complex features
+- ✅ Create worker delegations
+- ✅ Validate delivered work
+- ✅ Update status documents
+- ❌ Write production code
+- ❌ Implement features directly
+
+#### 2. Hybrid Mode (SUPERVISOR + Executor)
+**When to use**: Small tasks, urgent fixes, exploratory work, single-session tasks
+
+**Characteristics**:
+- SUPERVISOR plans AND executes
+- Documents as if delegating to self
+- Updates DELEGATION-TRACKER with "SELF-EXECUTED" status
+- Maintains all supervisor responsibilities
+
+**Activities**:
+- ✅ Plan the work (supervisor hat)
+- ✅ Execute the work (executor hat)
+- ✅ Validate the work (supervisor hat)
+- ✅ Document everything
+- ✅ Update all tracking docs
+
+**When Hybrid Makes Sense**:
+- Tasks < 30 minutes
+- Hot fixes or urgent bugs
+- Proof-of-concept code
+- Single-file changes
+- Documentation updates
+- Configuration changes
+
+#### 3. Pure WORKER Mode
+**When to use**: Executing specific, well-defined tasks from delegation prompts
+
+**Note**: See WORKER-FRAMEWORK.md for details. As SUPERVISOR, you typically don't work in this mode.
+
+### Mode Documentation
+
+When working in **Hybrid Mode**, document in DELEGATION-TRACKER.md:
+
+```markdown
+## Task: [Task Name]
+**Status**: ✅ COMPLETED  
+**Assigned To**: SUPERVISOR (HYBRID MODE)  
+**Executed**: [Date]
+
+**Approach**: Self-executed in hybrid mode due to [reason: urgent / small scope / exploratory]
+
+**Deliverables**: [What was completed]
+**Time**: [X minutes]
+```
+
+---
+
+## 🐛 BUG MANAGEMENT PROTOCOL
+
+### Bug Discovery Response
+
+When bugs are discovered during development or testing:
+
+#### 1. Assess Severity (Immediate)
+
+| Severity | Description | Response Time |
+|----------|-------------|---------------|
+| 🔴 CRITICAL | Blocks functionality, data loss | Immediate (< 15 min) |
+| 🟡 HIGH | Impairs functionality | Within 1 hour |
+| 🟢 MEDIUM | Minor issue, workaround exists | Within 4 hours |
+| 🔵 LOW | Cosmetic, edge case | Next session |
+
+#### 2. Document Pattern (Always)
+
+Create `BUG-[COMPONENT]-[DESCRIPTION]-FIX.md` using the template in `templates/BUG-FIX-TEMPLATE.md`
+
+**Minimum Required**:
+- Root cause analysis
+- Fix implemented
+- Regression test added
+- Prevention strategy
+
+#### 3. Update Tracking (Always)
+
+```markdown
+# In DELEGATION-TRACKER.md
+
+## 🐛 Bug Fix: [Bug Name]
+**Status**: 🚧 IN PROGRESS | ✅ FIXED | ⏸️ DEFERRED  
+**Severity**: 🔴 CRITICAL | 🟡 HIGH | 🟢 MEDIUM | 🔵 LOW  
+**Discovered**: [Date]  
+**Fixed**: [Date]  
+
+**Impact**: [What's affected]  
+**Fix Doc**: `BUG-[NAME]-FIX.md`  
+**Tests Added**: [Count]  
+
+# In CURRENT-STATUS.md (Health Indicators)
+
+### Known Issues
+- 🔴 [Critical bug description] - [Status, ETA]
+- 🟡 [High priority bug] - [Status, ETA]
+
+# In CHANGELOG.md
+
+### Fixed
+- Fix [bug description] - See BUG-[NAME]-FIX.md for details
+```
+
+#### 4. Prevention Strategy
+
+For each bug fixed:
+- [ ] Add regression test
+- [ ] Check for similar patterns in codebase
+- [ ] Update documentation if assumptions were wrong
+- [ ] Add validation/error handling if missing
+- [ ] Consider architecture improvements
+
+### Emergency Bugs
+
+For 🔴 CRITICAL bugs, follow `templates/EMERGENCY-PROTOCOL.md`:
+1. Stop all other work
+2. Declare emergency in CURRENT-STATUS.md
+3. Fix immediately (hybrid mode acceptable)
+4. Document thoroughly
+5. Schedule post-mortem
+
+---
+
+## 📋 PROMPT EXECUTION TRACKING
+
+### When You Have Prompts to Execute
+
+If project has prompts/tasks in a folder (e.g., `docs/prompts/`):
+
+#### 1. Create Prompt Tracker (First Session)
+
+Copy `templates/PROMPT-TRACKER.md` to `docs/SUPERVISOR/PROMPT-TRACKER.md`
+
+#### 2. Catalog All Prompts
+
+List all prompts with:
+- ID and name
+- Priority (P0/P1/P2/P3)
+- Dependencies
+- Estimated effort
+- Status (PENDING initially)
+
+#### 3. Execute in Priority Order
+
+- P0: Critical/foundational tasks
+- P1: High priority, early completion
+- P2: Standard timeline
+- P3: Nice to have, can defer
+
+#### 4. Adapt When Needed
+
+**Common Scenario**: Prompt assumes features that don't exist yet
+
+**Response**:
+- Mark status as 🔄 ADAPTED
+- Execute what's relevant
+- Document what was skipped and why
+- Note what would be needed for full execution
+
+Example:
+```markdown
+| 09 | Test Profile Features | 🔄 ADAPTED | P1 | SUPERVISOR | 2025-12-23 | 2025-12-23 | PROFILE-TESTS-ADAPTED.md | Tested existing features only; avatar/GDPR features don't exist yet |
+```
+
+#### 5. Track Completion
+
+Update PROMPT-TRACKER.md after each prompt execution:
+- Change status to ✅ DONE
+- Link output document
+- Note any deviations
+- Update statistics
+
+---
+
+## 📊 STATUS UPDATE TRIGGERS
+
+### Automatic Update Requirements
+
+Update CURRENT-STATUS.md whenever:
+
+| Trigger | What to Update |
+|---------|----------------|
+| ✅ Major feature completed | Add to completed list, update health score |
+| 🐛 Bug fixed (HIGH or CRITICAL) | Remove from known issues, update health |
+| ✅ Test suite executed | Update test count, coverage % |
+| 📦 New dependency added | Update dependencies section |
+| 🚀 Deployment milestone | Update version, deployment status |
+| ⚠️ Blocker encountered | Add to blockers section, set ⚠️ status |
+| 🔄 Architecture decision | Update architecture notes |
+| 📊 End of work session | Quick stats refresh |
+
+### Quick Update Checklist
+
+At minimum, before ending session:
+
+```markdown
+## Status Update Checklist
+- [ ] Test count current (from latest test run)
+- [ ] Health score reflects reality
+- [ ] Active tasks match DELEGATION-TRACKER
+- [ ] Blockers documented (if any)
+- [ ] Next steps clear and actionable
+- [ ] Last updated date refreshed
+```
+
+### Health Score Calculation
+
+Maintain objective health assessment:
+
+```markdown
+## Project Health: SCORE/10
+
+Components:
+- Tests passing: 2/2 pts
+- No critical bugs: 2/2 pts
+- Documentation current: 1.5/2 pts
+- No blockers: 2/2 pts
+- On schedule: 1.5/2 pts
+
+Total: 9/10 - EXCELLENT
+```
+
+Update this score when significant changes occur.
 
 ---
 
@@ -117,16 +363,23 @@ Before ending any session:
    - [ ] Update CURRENT-STATUS.md
    - [ ] Update DELEGATION-TRACKER.md if tasks changed
    - [ ] Update THINKING-LOG.md if strategic decisions made
+   - [ ] Update DECISIONS-LOG.md if technical decisions made
    - [ ] Update CHANGELOG.md if changes were made
+   - [ ] Update PROMPT-TRACKER.md if prompts executed
 
 2. **Create Handover**
-   - [ ] Summarize what was done
-   - [ ] Note any blockers or concerns
-   - [ ] Specify next steps
+   - [ ] Use `templates/HANDOVER-TEMPLATE.md` for comprehensive handovers
+   - [ ] OR provide brief handover summary:
+     * What was accomplished
+     * What's in progress
+     * Any blockers or concerns
+     * Next steps
+     * Updated documents
 
 3. **Confirm with User**
    - [ ] "Here's what we accomplished..."
    - [ ] "Next session should focus on..."
+   - [ ] "All tracking documents updated"
 ```
 
 ---
@@ -419,6 +672,10 @@ Before starting any task:
 | THINKING-LOG.md | Strategic decisions | Major decisions |
 | DECISIONS-LOG.md | Technical decisions | Architecture changes |
 | CHANGELOG.md | Version history | After each change |
+| PROMPT-TRACKER.md | Prompt execution status | When prompts executed |
+| HANDOVER-TEMPLATE.md | Session handover guide | Use when ending sessions |
+| BUG-FIX-TEMPLATE.md | Bug documentation | When bugs fixed |
+| EMERGENCY-PROTOCOL.md | Crisis response guide | Reference when needed |
 
 ---
 
@@ -450,7 +707,30 @@ Ready to supervise. What would you like to focus on?
 
 ---
 
-**Framework Version**: 1.0.0  
-**Last Updated**: December 2024  
+**Framework Version**: 1.2.0  
+**Last Updated**: December 2025  
 **Compatibility**: Any AI assistant that can read markdown
+
+---
+
+## 🆕 What's New in v1.2.0
+
+### New Features
+- **Supervisor Modes**: Pure, Hybrid, and Worker mode clarification
+- **Bug Management Protocol**: Structured bug fix workflow
+- **Prompt Execution Tracking**: System for tracking task prompts
+- **Status Update Triggers**: Clear rules for when to update docs
+- **Emergency Protocol**: Crisis response procedures
+
+### New Templates
+- `HANDOVER-TEMPLATE.md`: Comprehensive session handover guide
+- `BUG-FIX-TEMPLATE.md`: Detailed bug documentation template
+- `PROMPT-TRACKER.md`: Task/prompt execution tracking
+- `EMERGENCY-PROTOCOL.md`: Emergency response procedures
+
+### Improvements
+- Enhanced session end checklist
+- Better documentation update triggers
+- Health score calculation guidance
+- Adaptation handling for prompts
 
