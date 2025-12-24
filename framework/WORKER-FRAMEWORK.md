@@ -1,7 +1,7 @@
 # AI Worker Framework
 
 **Purpose**: Define the WORKER role for executing delegated tasks efficiently  
-**Version**: 1.0.0  
+**Version**: 1.2.0  
 **Usage**: Read this document when asked to "Initialize as WORKER"
 
 ---
@@ -256,6 +256,117 @@ Before reporting task as complete:
 
 ---
 
+## 🎯 SUCCESS CRITERIA TEMPLATES
+
+Use these templates to understand what "done" looks like for different task types.
+
+### Feature Implementation
+
+```markdown
+Success Criteria:
+- [ ] All acceptance criteria met from delegation
+- [ ] Unit tests written (minimum 80% coverage for new code)
+- [ ] Integration tests pass
+- [ ] No linter errors or warnings
+- [ ] Documentation updated (README, API docs, comments)
+- [ ] CHANGELOG updated with feature description
+- [ ] Manual testing performed and documented
+- [ ] Edge cases handled gracefully
+- [ ] Error messages clear and helpful
+- [ ] No hardcoded values that should be configuration
+```
+
+### Bug Fix
+
+```markdown
+Success Criteria:
+- [ ] Root cause identified and documented
+- [ ] Fix implemented and tested
+- [ ] Regression test added (prevents bug from recurring)
+- [ ] Manual verification completed
+- [ ] Bug documentation created (BUG-[NAME]-FIX.md)
+- [ ] Related code patterns reviewed for similar issues
+- [ ] CHANGELOG updated with fix description
+- [ ] No new bugs introduced (all existing tests pass)
+- [ ] Prevention strategy documented
+```
+
+### Testing Task
+
+```markdown
+Success Criteria:
+- [ ] All required tests written
+- [ ] 100% test pass rate
+- [ ] Coverage target met (e.g., 80%+)
+- [ ] Test report generated with statistics
+- [ ] Test failures documented with reproduction steps
+- [ ] Test code follows project conventions
+- [ ] Tests cover happy path, edge cases, and error conditions
+- [ ] Tests are maintainable and well-named
+- [ ] Performance tests pass (if applicable)
+```
+
+### Documentation Task
+
+```markdown
+Success Criteria:
+- [ ] All specified documentation written
+- [ ] Documentation accurate and up-to-date
+- [ ] Examples included where helpful
+- [ ] Links working and correct
+- [ ] Formatting consistent with project style
+- [ ] Technical accuracy verified
+- [ ] No spelling or grammar errors
+- [ ] Screenshots/diagrams included where needed
+- [ ] Code samples tested and working
+```
+
+### Refactoring Task
+
+```markdown
+Success Criteria:
+- [ ] Code refactored as specified
+- [ ] All existing tests still pass
+- [ ] No functionality changes (behavior identical)
+- [ ] Code quality improved (measurable)
+- [ ] Performance not degraded
+- [ ] Dependencies updated if needed
+- [ ] No breaking changes to API/interfaces
+- [ ] Code coverage maintained or improved
+- [ ] Linter errors reduced or eliminated
+```
+
+### Integration Task
+
+```markdown
+Success Criteria:
+- [ ] Integration implemented and working
+- [ ] API contracts honored
+- [ ] Error handling for integration failures
+- [ ] Configuration externalized (no hardcoded values)
+- [ ] Integration tests written
+- [ ] Retry/fallback logic implemented (if applicable)
+- [ ] Timeout handling appropriate
+- [ ] Logging added for debugging
+- [ ] Documentation updated with integration details
+```
+
+### Configuration/Setup Task
+
+```markdown
+Success Criteria:
+- [ ] Configuration implemented as specified
+- [ ] Default values sensible and documented
+- [ ] Environment-specific configs working
+- [ ] Validation for config values
+- [ ] Documentation includes all config options
+- [ ] Example configurations provided
+- [ ] Migration path from old config (if applicable)
+- [ ] No sensitive values in code/docs
+```
+
+---
+
 ## 📝 COMPLETION REPORT TEMPLATE
 
 ```markdown
@@ -450,7 +561,33 @@ I've read the Worker Framework and loaded project context.
 
 ---
 
-**Framework Version**: 1.0.0  
-**Last Updated**: December 2024  
+**Framework Version**: 1.2.0  
+**Last Updated**: December 2025  
 **Compatibility**: Any AI assistant that can read markdown
+
+---
+
+## 🆕 What's New in v1.2.0
+
+### New Features
+- **Success Criteria Templates**: Task-specific completion checklists for 7 common task types
+  - Feature Implementation
+  - Bug Fix
+  - Testing Task
+  - Documentation Task
+  - Refactoring Task
+  - Integration Task
+  - Configuration/Setup Task
+
+### Improvements
+- Enhanced completion checklist guidance
+- Better deliverable verification standards
+- Clearer testing requirements
+- More comprehensive documentation standards
+
+### Benefits
+- Know exactly what "done" looks like for each task type
+- Consistent quality across all deliverables
+- Fewer missed requirements
+- Better alignment with supervisor expectations
 

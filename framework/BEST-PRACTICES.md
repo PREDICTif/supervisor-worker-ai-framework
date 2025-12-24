@@ -264,6 +264,189 @@ When switching between workers on same task:
 
 ---
 
+## 🧪 Testing Strategy
+
+### Test Ownership
+
+Clarify who owns testing for different types of work:
+
+| Test Type | Owner | When |
+|-----------|-------|------|
+| Feature Unit Tests | WORKER implementing feature | Part of feature delegation |
+| Integration Tests | WORKER or separate delegation | After multiple features complete |
+| Bug Regression Tests | WORKER fixing bug | Required for every bug fix |
+| E2E Tests | Scheduled milestone | After major feature sets |
+| Performance Tests | Separate delegation | Before major releases |
+
+### Test-Driven Delegation
+
+When delegating features as SUPERVISOR:
+
+```markdown
+## Delegation: [Feature Name]
+
+### Testing Requirements
+- [ ] Minimum 80% code coverage for new code
+- [ ] Unit tests for all public functions
+- [ ] Integration test for happy path
+- [ ] Edge case tests (empty input, max values, etc.)
+- [ ] Error condition tests
+
+### Success Criteria Includes Testing
+- [ ] All tests passing (100% pass rate)
+- [ ] Coverage target met
+- [ ] Test report included in completion
+```
+
+### Test Failure Protocol
+
+#### As WORKER
+
+If tests fail during validation:
+1. **Document failure** clearly in progress report
+2. **Debug and fix** if within scope
+3. **Escalate** if failure indicates larger issue
+4. **Never report completion** with failing tests
+
+#### As SUPERVISOR
+
+If tests fail during validation of worker output:
+1. **Document specific failures**
+2. **Assess severity** (blocking vs. minor)
+3. **Create new delegation** for fixes if needed
+4. **Do NOT accept completion** until tests pass
+
+### Testing Phases
+
+#### Phase 1: During Development (WORKER)
+
+```markdown
+Development Testing Checklist:
+- [ ] Unit test written for each function
+- [ ] Manual verification as you code
+- [ ] Edge cases identified and tested
+- [ ] Error paths tested
+- [ ] Integration points tested
+```
+
+#### Phase 2: Before Completion (WORKER)
+
+```markdown
+Pre-Completion Testing:
+- [ ] All unit tests passing
+- [ ] Integration tests passing
+- [ ] Manual end-to-end test completed
+- [ ] No regressions in existing features
+- [ ] Test coverage report generated
+```
+
+#### Phase 3: Validation (SUPERVISOR)
+
+```markdown
+Validation Testing:
+- [ ] Run full test suite
+- [ ] Verify coverage meets minimum
+- [ ] Manual verification of key functionality
+- [ ] Check for integration issues
+- [ ] Performance acceptable
+```
+
+### Testing Best Practices
+
+#### DO ✅
+
+- **Write tests first** or alongside code
+- **Test edge cases** (empty, null, max, min)
+- **Test error conditions** (bad input, failures)
+- **Keep tests fast** (unit tests < 1s each)
+- **Use descriptive test names** (`test_user_login_with_invalid_password_returns_401`)
+- **Test one thing per test** (focused assertions)
+- **Mock external dependencies** (APIs, databases)
+- **Add regression tests** for every bug fixed
+
+#### DON'T ❌
+
+- Don't skip tests "to save time" (costs more later)
+- Don't test implementation details (test behavior)
+- Don't write flaky tests (inconsistent pass/fail)
+- Don't commit failing tests (fix or skip them properly)
+- Don't duplicate test logic (use helpers/fixtures)
+- Don't test framework code (trust libraries)
+- Don't ignore warnings about test quality
+
+### Test Coverage Guidelines
+
+#### Minimum Targets
+
+| Code Type | Coverage Target |
+|-----------|----------------|
+| Business Logic | 90%+ |
+| API Endpoints | 85%+ |
+| Utilities | 80%+ |
+| UI Components | 70%+ |
+| Configuration | 60%+ |
+
+#### What to Prioritize
+
+1. **Critical paths** (user login, payment, data save)
+2. **Complex logic** (algorithms, calculations)
+3. **Error handling** (exception paths)
+4. **Edge cases** (boundary conditions)
+5. **Integration points** (external APIs, databases)
+
+### Test Report Template
+
+Include in completion reports:
+
+```markdown
+## Test Results
+
+### Unit Tests
+- **Total**: 47 tests
+- **Passed**: 47 (100%)
+- **Failed**: 0
+- **Coverage**: 87%
+
+### Integration Tests
+- **Total**: 12 tests
+- **Passed**: 12 (100%)
+- **Coverage**: 73%
+
+### Manual Testing
+- [x] Happy path: User can log in successfully
+- [x] Error case: Invalid credentials show error message
+- [x] Edge case: Empty fields show validation error
+
+### Performance
+- Response time: 45ms (target: < 100ms)
+- Memory usage: 12MB (acceptable)
+```
+
+### When Tests Are Blocked
+
+If testing is blocked (missing test infrastructure, etc.):
+
+```markdown
+## Testing Status: ⚠️ BLOCKED
+
+**Blocker**: [Description]
+**Impact**: Cannot write [type] tests
+**Workaround**: Manual testing performed
+**Next Steps**: Need test infrastructure setup
+
+### Manual Verification
+Since automated tests blocked, performed:
+- [x] Manual test 1
+- [x] Manual test 2
+- [x] Manual test 3
+
+### Follow-Up Required
+- [ ] Set up test infrastructure
+- [ ] Convert manual tests to automated
+```
+
+---
+
 ## 💡 Efficiency Tips
 
 ### For Supervisors
@@ -351,6 +534,31 @@ When switching between workers on same task:
 
 ---
 
-**Best Practices Version**: 1.0.0  
-**Last Updated**: December 2024
+**Best Practices Version**: 1.2.0  
+**Last Updated**: December 2025
+
+---
+
+## 🆕 What's New in v1.2.0
+
+### New Sections
+- **Testing Strategy**: Comprehensive testing guidance including:
+  - Test ownership clarification
+  - Test-driven delegation approach
+  - Test failure protocols
+  - Coverage guidelines and targets
+  - Test report templates
+
+### Key Additions
+- Clear testing phases (development, completion, validation)
+- Testing best practices (DOs and DON'Ts)
+- Test coverage targets by code type
+- Handling blocked testing scenarios
+- Test report template for completion docs
+
+### Impact
+- Better test quality across projects
+- Clear expectations for testing
+- Fewer bugs reaching production
+- More consistent test coverage
 
