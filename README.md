@@ -187,7 +187,7 @@ MIT License - Use freely in any project.
 
 ---
 
-**Version**: 1.1.0  
+**Version**: 1.2.0  
 **Created**: December 2024  
 **Last Updated**: December 2025  
 **Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE

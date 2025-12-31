@@ -137,5 +137,5 @@ For more details, see:
 
 ---
 
-**Quick Start Version**: 1.0.0
+**Quick Start Version**: 1.2.0
 

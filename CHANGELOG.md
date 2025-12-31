@@ -8,14 +8,68 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [1.2.0] - December 31, 2025
+
 ### Added
-- **December 4, 2025**: Encore Loyalty AI Feedback System case study in examples
+- **December 31, 2025**: Encore Loyalty AI Feedback System case study added to examples
   - Added comprehensive real-world example to `examples/README.md`
   - Documented 11-phase development lifecycle with 25+ worker prompts
   - Included sample CLAUDE.md, worker prompts, and completion reports
   - Added key metrics: 61,803 feedback items, 44+ API endpoints, 98% completion
   - Documented lessons learned and success factors
 
+- **December 31, 2025**: Framework improvements merged from `./framework`
+  - Enhanced SUPERVISOR-FRAMEWORK.md with v1.2.0 features
+  - Enhanced WORKER-FRAMEWORK.md with success criteria templates
+  - Enhanced BEST-PRACTICES.md with comprehensive testing strategy
+  - Added new templates: HANDOVER-TEMPLATE.md, BUG-FIX-TEMPLATE.md, PROMPT-TRACKER.md, EMERGENCY-PROTOCOL.md
+
+### New Features in v1.2.0
+
+#### SUPERVISOR-FRAMEWORK.md
+- **Supervisor Modes**: Clarified Pure, Hybrid, and Worker modes with clear usage guidelines
+- **Bug Management Protocol**: Structured workflow for bug discovery, documentation, and prevention
+- **Prompt Execution Tracking**: System for cataloging and tracking task prompts with adaptation handling
+- **Status Update Triggers**: Clear rules for when to update documentation
+- **Health Score Calculation**: Objective project health assessment methodology
+
+#### WORKER-FRAMEWORK.md
+- **Success Criteria Templates**: Task-specific completion checklists for 7 common task types:
+  - Feature Implementation
+  - Bug Fix
+  - Testing Task
+  - Documentation Task
+  - Refactoring Task
+  - Integration Task
+  - Configuration/Setup Task
+
+#### BEST-PRACTICES.md
+- **Testing Strategy**: Comprehensive testing guidance including:
+  - Test ownership clarification (who tests what)
+  - Test-driven delegation approach
+  - Test failure protocols for both workers and supervisors
+  - Coverage guidelines and targets by code type
+  - Test report templates
+  - Testing phases (development, completion, validation)
+
+#### New Templates
+- `HANDOVER-TEMPLATE.md`: Comprehensive session handover guide
+- `BUG-FIX-TEMPLATE.md`: Detailed bug documentation template with root cause analysis
+- `PROMPT-TRACKER.md`: Task/prompt execution tracking with priority system
+- `EMERGENCY-PROTOCOL.md`: Crisis response procedures for critical bugs
+
+### Changed
+- **Version**: Updated from 1.1.0 to 1.2.0 across all framework documents
+- **Documentation**: Enhanced session end checklists in SUPERVISOR-FRAMEWORK.md
+- **Quality**: Better deliverable verification standards in WORKER-FRAMEWORK.md
+
+---
+
+## [1.1.0] - December 4, 2025
+
+### Added
 - **December 4, 2025**: AI IDE configuration templates
   - Created `templates/ai-ide-configs/CLAUDE.md` - Claude/Anthropic instructions template
   - Created `templates/ai-ide-configs/context.md` - Project context template

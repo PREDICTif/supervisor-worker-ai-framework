@@ -294,5 +294,5 @@ After setup is complete, these commands should work:
 
 ---
 
-**Installation Guide Version**: 1.1.0  
+**Installation Guide Version**: 1.2.0  
 **Last Updated**: December 2025
