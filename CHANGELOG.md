@@ -10,6 +10,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.3.0] - March 14, 2026
+
+### Added
+- **March 14, 2026**: Superpowers methodology skills integration
+  - Vendored [Superpowers](https://github.com/obra/superpowers) (MIT, by Jesse Vincent) into `superpowers/` subfolder
+  - Skills are installed as project-level Cursor skills (`.cursor/skills/`) during framework initialization — no plugin install or IDE restart needed
+  - 10 methodology skills included: brainstorming, writing-plans, executing-plans, subagent-driven-development, test-driven-development, systematic-debugging, requesting-code-review, verification-before-completion, finishing-a-development-branch, dispatching-parallel-agents
+  - Created `templates/cursor-rules/superpowers-methodology.md` bridge rule template that maps Supervisor workflows to methodology skills
+  - Updated INSTALLATION.md with new Step 3.5 for skill installation and supporting file copy instructions
+  - Updated SUPERVISOR-FRAMEWORK.md with methodology skills reference section and skill-guided session workflow
+  - Updated README.md with new directory structure, skills table, and Superpowers attribution
+
+### Changed
+- **Version**: Updated from 1.2.0 to 1.3.0 across all framework documents
+- **INSTALLATION.md**: Directory structure now includes `.cursor/skills/` and `.cursor/rules/`; confirmation template lists installed skills
+- **SUPERVISOR-FRAMEWORK.md**: "During Session" workflow now references specific skills at each step; added "Methodology Skills Reference" section
+- **README.md**: Framework contents diagram includes `superpowers/` and `templates/cursor-rules/`; AI assistant init steps include skill installation
+
+---
+
 ## [1.2.0] - December 31, 2025
 
 ### Added

@@ -76,12 +76,22 @@ supervisor-worker-ai-framework/
 │   ├── SUPERVISOR-FRAMEWORK.md    # Complete supervisor guide
 │   ├── WORKER-FRAMEWORK.md        # Complete worker guide
 │   └── BEST-PRACTICES.md          # Tips, patterns, anti-patterns
+├── superpowers/                   # Vendored Superpowers skills (source)
+│   └── skills/                    # Methodology skills library
+│       ├── brainstorming/         # Think before coding
+│       ├── writing-plans/         # Structured planning
+│       ├── test-driven-development/  # TDD discipline
+│       ├── systematic-debugging/  # Root-cause debugging
+│       ├── subagent-driven-development/  # Subagent execution
+│       └── ...                    # + more (see INSTALLATION.md)
 └── templates/
     ├── CURRENT-STATUS.md          # Project health dashboard
     ├── DELEGATION-TRACKER.md      # Task tracking
     ├── THINKING-LOG.md            # Strategic decisions
     ├── DECISIONS-LOG.md           # Technical decisions
     ├── SESSION-SUMMARY.md         # Session handover template
+    ├── cursor-rules/              # Cursor rule templates
+    │   └── superpowers-methodology.md  # Methodology bridge rule
     └── ai-ide-configs/            # AI IDE configuration templates
         ├── CLAUDE.md              # Claude/Anthropic instructions
         ├── context.md             # Project context for AI
@@ -109,8 +119,9 @@ When asked to initialize this framework:
 2. Gather project information (name, type, tech stack)
 3. Create `docs/SUPERVISOR/` directory in target project
 4. Generate AI IDE configuration files (CLAUDE.md, .cursorrules, etc.)
-5. Copy and customize templates for the specific project
-6. Initialize as either SUPERVISOR or WORKER based on user request
+5. Install methodology skills into `.cursor/skills/` (Cursor IDE)
+6. Copy and customize templates for the specific project
+7. Initialize as either SUPERVISOR or WORKER based on user request
 
 ## 🎭 Roles
 
@@ -173,6 +184,25 @@ A well-implemented framework should enable:
 - [Worker Framework](framework/WORKER-FRAMEWORK.md) - Full worker guide
 - [Best Practices](framework/BEST-PRACTICES.md) - Tips and patterns
 
+## 🛠️ Methodology Skills (Powered by Superpowers)
+
+This framework includes methodology skills adapted from [Superpowers](https://github.com/obra/superpowers) (MIT License, by Jesse Vincent). During initialization, these are installed as project-level Cursor skills (`.cursor/skills/`), making them immediately available without any plugin installation or IDE restart.
+
+| Skill | Purpose |
+|-------|---------|
+| `brainstorming` | Think before coding — structured ideation |
+| `writing-plans` | Create structured implementation plans |
+| `executing-plans` | Execute plans across multiple sessions |
+| `subagent-driven-development` | Execute plans with subagents in the current session |
+| `test-driven-development` | TDD discipline — red, green, refactor |
+| `systematic-debugging` | Root-cause debugging methodology |
+| `requesting-code-review` | Code review workflow |
+| `verification-before-completion` | Final verification before marking done |
+| `finishing-a-development-branch` | Branch completion workflow |
+| `dispatching-parallel-agents` | Coordinate parallel work streams |
+
+The framework defines **what** to do (roles, delegation, tracking). The skills define **how** to do it (methodology, discipline, quality).
+
 ## 🤝 Contributing
 
 This framework is designed to evolve. If you find patterns that work well:
@@ -187,7 +217,8 @@ MIT License - Use freely in any project.
 
 ---
 
-**Version**: 1.2.0  
+**Version**: 1.3.0  
 **Created**: December 2024  
-**Last Updated**: December 2025  
-**Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE
+**Last Updated**: March 2026  
+**Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE  
+**Methodology Skills**: Adapted from [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent (MIT License)

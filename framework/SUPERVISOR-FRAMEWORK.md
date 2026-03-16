@@ -1,7 +1,7 @@
 # AI Supervisor Framework
 
 **Purpose**: Define the SUPERVISOR role for AI-assisted software development  
-**Version**: 1.2.0  
+**Version**: 1.3.0  
 **Usage**: Read this document when asked to "Initialize as SUPERVISOR"
 
 ---
@@ -333,23 +333,38 @@ Before doing any work:
 ## Active Supervision
 
 1. **If planning new work**:
+   - Use `brainstorming` skill first, then `writing-plans` skill
    - Break into phases (if complex)
    - Create delegation prompts
    - Update DELEGATION-TRACKER
 
-2. **If validating completed work**:
+2. **If executing a plan**:
+   - Use `subagent-driven-development` skill (same session) or
+     `executing-plans` skill (parallel sessions)
+   - Workers should use `test-driven-development` skill
+
+3. **If validating completed work**:
+   - Use `requesting-code-review` skill
    - Review against success criteria
    - Check for regressions
    - Update CURRENT-STATUS
 
-3. **If making decisions**:
+4. **If debugging issues**:
+   - Use `systematic-debugging` skill
+   - Follow root-cause tracing methodology
+
+5. **If making decisions**:
    - Document in THINKING-LOG (strategic)
    - Document in DECISIONS-LOG (technical)
 
-4. **If delegating**:
+6. **If delegating**:
    - Create clear delegation prompt
    - Specify success criteria
    - Provide necessary context
+
+7. **If completing work**:
+   - Use `verification-before-completion` skill
+   - Use `finishing-a-development-branch` skill when wrapping up a branch
 ```
 
 ### Session End Protocol
@@ -663,6 +678,28 @@ Before starting any task:
 
 ---
 
+## 🛠️ METHODOLOGY SKILLS REFERENCE
+
+If the project was initialized with methodology skills (`.cursor/skills/`), use them to guide **how** you execute work. The framework documents define **what** to do; skills define **how** to do it.
+
+| Activity | Skills to Use |
+|----------|--------------|
+| Planning new work | `brainstorming` → `writing-plans` |
+| Executing a plan (same session) | `subagent-driven-development` |
+| Executing a plan (parallel sessions) | `executing-plans` |
+| Implementing features | `test-driven-development` |
+| Debugging issues | `systematic-debugging` |
+| Reviewing code | `requesting-code-review` |
+| Parallelizing tasks | `dispatching-parallel-agents` |
+| Verifying completion | `verification-before-completion` |
+| Finishing a branch | `finishing-a-development-branch` |
+
+**Skill priority**: Process skills first (brainstorming, debugging), then implementation skills (TDD, subagent-driven-development), then completion skills (review, verification).
+
+See `.cursor/rules/superpowers-methodology.md` for the full mapping and priority rules.
+
+---
+
 ## 📚 KEY DOCUMENTS REFERENCE
 
 | Document | Purpose | Update Frequency |
@@ -707,13 +744,27 @@ Ready to supervise. What would you like to focus on?
 
 ---
 
-**Framework Version**: 1.2.0  
-**Last Updated**: December 2025  
+**Framework Version**: 1.3.0  
+**Last Updated**: March 2026  
 **Compatibility**: Any AI assistant that can read markdown
 
 ---
 
-## 🆕 What's New in v1.2.0
+## 🆕 What's New in v1.3.0
+
+### New Features
+- **Methodology Skills Integration**: Superpowers skills installed as project-level Cursor skills
+- **Skill-Guided Workflows**: Supervisor session workflow now references methodology skills at each step
+- **Methodology Skills Reference**: New section mapping supervisor activities to specific skills
+
+### Skills Added
+- `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`
+- `test-driven-development`, `systematic-debugging`, `requesting-code-review`
+- `verification-before-completion`, `finishing-a-development-branch`, `dispatching-parallel-agents`
+
+---
+
+## What's New in v1.2.0
 
 ### New Features
 - **Supervisor Modes**: Pure, Hybrid, and Worker mode clarification

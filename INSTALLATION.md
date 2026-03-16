@@ -49,6 +49,20 @@ Create the following structure:
 ├── context.md                      # Project context for AI (generated)
 ├── .cursorrules                    # Cursor IDE rules (generated)
 ├── .windsurfrules                  # Windsurf IDE rules (generated)
+├── .cursor/
+│   ├── rules/
+│   │   └── superpowers-methodology.md  # Methodology bridge rule
+│   └── skills/                         # Project-level methodology skills
+│       ├── brainstorming/
+│       ├── writing-plans/
+│       ├── executing-plans/
+│       ├── subagent-driven-development/
+│       ├── test-driven-development/
+│       ├── systematic-debugging/
+│       ├── requesting-code-review/
+│       ├── verification-before-completion/
+│       ├── finishing-a-development-branch/
+│       └── dispatching-parallel-agents/
 └── docs/
     └── SUPERVISOR/
         ├── SUPERVISOR-FRAMEWORK.md # Copy from framework/
@@ -95,6 +109,50 @@ Use the template from `templates/ai-ide-configs/.cursorrules` and fill in:
 #### 3.4 Create `.windsurfrules` (for Windsurf IDE)
 
 Use the template from `templates/ai-ide-configs/.windsurfrules` with similar customization.
+
+### Step 3.5: Install Methodology Skills (Cursor IDE)
+
+**This step installs Superpowers methodology skills as project-level Cursor skills.** These skills provide proven workflows for planning, TDD, debugging, code review, and more. They are available immediately in Cursor without any plugin installation or restart.
+
+#### 3.5.1 Create `.cursor/skills/` directory
+
+Create the `.cursor/skills/` directory in the target project root.
+
+#### 3.5.2 Copy skills from vendored source
+
+The framework includes a vendored copy of [Superpowers](https://github.com/obra/superpowers) skills in `superpowers/skills/`. Copy each of the following skills into `.cursor/skills/<skill-name>/`:
+
+| Source (`superpowers/skills/...`) | Target (`.cursor/skills/...`) | Files to Copy |
+|---|---|---|
+| `brainstorming/` | `brainstorming/` | `SKILL.md`, `spec-document-reviewer-prompt.md`, `visual-companion.md`, `scripts/*` |
+| `writing-plans/` | `writing-plans/` | `SKILL.md`, `plan-document-reviewer-prompt.md` |
+| `executing-plans/` | `executing-plans/` | `SKILL.md` |
+| `subagent-driven-development/` | `subagent-driven-development/` | `SKILL.md`, `implementer-prompt.md`, `spec-reviewer-prompt.md`, `code-quality-reviewer-prompt.md` |
+| `test-driven-development/` | `test-driven-development/` | `SKILL.md`, `testing-anti-patterns.md` |
+| `systematic-debugging/` | `systematic-debugging/` | `SKILL.md`, `root-cause-tracing.md`, `defense-in-depth.md`, `condition-based-waiting.md`, `condition-based-waiting-example.ts`, `find-polluter.sh` |
+| `requesting-code-review/` | `requesting-code-review/` | `SKILL.md`, `code-reviewer.md` |
+| `verification-before-completion/` | `verification-before-completion/` | `SKILL.md` |
+| `finishing-a-development-branch/` | `finishing-a-development-branch/` | `SKILL.md` |
+| `dispatching-parallel-agents/` | `dispatching-parallel-agents/` | `SKILL.md` |
+
+**Do NOT copy** these skills (they are platform-specific or meta):
+- `using-superpowers/` (plugin bootstrap — replaced by the bridge rule below)
+- `using-git-worktrees/` (orthogonal to the framework)
+- `writing-skills/` (meta-skill for creating skills)
+- `receiving-code-review/` (Claude Code specific)
+
+For `systematic-debugging/`, skip test/example files (`test-academic.md`, `test-pressure-*.md`, `CREATION-LOG.md`) — only copy the core reference files listed above.
+
+#### 3.5.3 Create `.cursor/rules/superpowers-methodology.md`
+
+Create a Cursor rule file that bridges Supervisor workflows to the installed methodology skills. Use the template from `templates/cursor-rules/superpowers-methodology.md`.
+
+This rule tells the AI:
+- Methodology skills are available at `.cursor/skills/`
+- Process skills (brainstorming, debugging) take priority over implementation skills
+- How Supervisor activities map to specific skills
+
+---
 
 ### Step 4: Customize Framework Templates
 
@@ -149,6 +207,21 @@ I've created the framework structure with AI IDE configurations:
 - ✅ THINKING-LOG.md - Strategic decisions log
 - ✅ DECISIONS-LOG.md - Technical decisions log
 
+### Methodology Skills (.cursor/skills/)
+- ✅ brainstorming - Think before coding, visual brainstorming
+- ✅ writing-plans - Structured implementation planning
+- ✅ executing-plans - Plan execution across sessions
+- ✅ subagent-driven-development - Same-session execution with subagents
+- ✅ test-driven-development - TDD discipline (red-green-refactor)
+- ✅ systematic-debugging - Root-cause debugging methodology
+- ✅ requesting-code-review - Code review workflow
+- ✅ verification-before-completion - Final verification before marking done
+- ✅ finishing-a-development-branch - Branch completion workflow
+- ✅ dispatching-parallel-agents - Parallel work coordination
+
+### Methodology Bridge Rule (.cursor/rules/)
+- ✅ superpowers-methodology.md - Maps Supervisor workflows to skills
+
 ### Project Configuration Detected
 - **Name**: [Project Name]
 - **Type**: [Project Type]
@@ -196,6 +269,8 @@ AI IDE configuration files help AI assistants:
 | `context.md` | All | Quick project context reference |
 | `.cursorrules` | Cursor | Cursor-specific behavior rules |
 | `.windsurfrules` | Windsurf | Windsurf/Cascade specific rules |
+| `.cursor/skills/` | Cursor | Methodology skills (TDD, debugging, planning, etc.) |
+| `.cursor/rules/superpowers-methodology.md` | Cursor | Bridge rule mapping Supervisor workflows to skills |
 
 ### Detecting Project Information
 
@@ -294,5 +369,5 @@ After setup is complete, these commands should work:
 
 ---
 
-**Installation Guide Version**: 1.2.0  
-**Last Updated**: December 2025
+**Installation Guide Version**: 1.3.0  
+**Last Updated**: March 2026
