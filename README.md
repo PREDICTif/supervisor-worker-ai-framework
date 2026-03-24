@@ -112,6 +112,8 @@ https://github.com/PREDICTif/supervisor-worker-ai-framework
 Create the framework in ./docs/SUPERVISOR/ folder.
 ```
 
+If the framework already exists in a project, asking to initialize it again should be treated as an upgrade/repair pass that refreshes framework files and re-syncs missing project-level skills.
+
 ### For AI Assistants
 
 When asked to initialize this framework:
@@ -120,7 +122,7 @@ When asked to initialize this framework:
 2. Gather project information (name, type, tech stack)
 3. Create `docs/SUPERVISOR/` directory in target project
 4. Generate AI IDE configuration files (CLAUDE.md, .cursorrules, etc.)
-5. Install methodology skills into `.cursor/skills/` (Cursor IDE)
+5. Install or sync methodology skills into `.cursor/skills/` (Cursor IDE)
 6. Copy and customize templates for the specific project
 7. Initialize as either SUPERVISOR or WORKER based on user request
 
@@ -187,7 +189,7 @@ A well-implemented framework should enable:
 
 ## 🛠️ Methodology Skills (Powered by Superpowers)
 
-This framework includes methodology skills adapted from [Superpowers](https://github.com/obra/superpowers) (MIT License, by Jesse Vincent). During initialization, these are installed as project-level Cursor skills (`.cursor/skills/`), making them immediately available without any plugin installation or IDE restart.
+This framework includes methodology skills adapted from [Superpowers](https://github.com/obra/superpowers) (MIT License, by Jesse Vincent). During initialization, these are installed as project-level Cursor skills (`.cursor/skills/`), making them immediately available without any plugin installation or IDE restart. Re-running framework initialization in an existing project should also re-sync missing or newly added skills.
 
 | Skill | Purpose |
 |-------|---------|
@@ -215,7 +217,7 @@ MIT License - Use freely in any project.
 
 ---
 
-**Version**: 1.3.1  
+**Version**: 1.3.2  
 **Created**: December 2024  
 **Last Updated**: March 2026  
 **Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE  

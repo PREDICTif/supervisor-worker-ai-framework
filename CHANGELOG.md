@@ -10,6 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.3.2] - March 14, 2026
+
+### Fixed
+- **March 14, 2026**: Re-initializing the framework in an existing project now upgrades the project-level skill install instead of only reloading docs
+  - Updated `superpowers/skills/init-supervisor/SKILL.md` so re-init reconciles `.cursor/skills/` and refreshes `.cursor/rules/superpowers-methodology.md` before briefing
+  - Updated `INSTALLATION.md` so existing framework installs are treated as upgrade/repair passes
+  - Clarified in `README.md` that re-running initialization should sync missing or newly added skills such as `init-supervisor`
+
+---
+
 ## [1.3.1] - March 14, 2026
 
 ### Added

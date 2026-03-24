@@ -1,6 +1,6 @@
 # AI Installation Guide
 
-**For AI Assistants**: This document tells you exactly how to initialize the Supervisor-Worker Framework in a new project.
+**For AI Assistants**: This document tells you exactly how to initialize or re-initialize the Supervisor-Worker Framework in a project.
 
 ---
 
@@ -10,12 +10,25 @@ When a user says something like:
 - "Initialize the supervisor-worker AI framework"
 - "Set up the AI supervision framework from [source]"
 - "Create the SUPERVISOR structure in my project"
+- "Re-initialize or refresh the supervisor framework in this project"
 
 Follow these steps:
 
 ---
 
 ## 📋 Step-by-Step Installation
+
+### Step 0: Detect New Install vs Upgrade
+
+Before creating or copying anything, check whether the project already has framework files such as `docs/SUPERVISOR/SUPERVISOR-FRAMEWORK.md`, `.cursor/skills/`, or `.cursor/rules/superpowers-methodology.md`.
+
+If those files already exist, treat the request as an **upgrade/repair pass**, not as a no-op:
+
+- Do **not** skip installation steps just because the framework already exists
+- Reconcile framework files with the current framework source
+- Re-sync `.cursor/skills/` so newly added skills are installed
+- Refresh `.cursor/rules/superpowers-methodology.md` from the current template
+- Preserve project-specific operating documents like `CURRENT-STATUS.md`, `DELEGATION-TRACKER.md`, `THINKING-LOG.md`, and `DECISIONS-LOG.md` unless the user explicitly asks to replace them
 
 ### Step 1: Gather Project Information
 
@@ -111,13 +124,15 @@ Use the template from `templates/ai-ide-configs/.windsurfrules` with similar cus
 
 **This step installs Superpowers methodology skills as project-level Cursor skills.** These skills provide proven workflows for planning, TDD, debugging, code review, and more. They are available immediately in Cursor without any plugin installation or restart.
 
-#### 3.5.1 Create `.cursor/skills/` directory
+#### 3.5.1 Create or reconcile `.cursor/skills/` directory
 
-Create the `.cursor/skills/` directory in the target project root.
+Create the `.cursor/skills/` directory in the target project root if it does not exist.
 
-#### 3.5.2 Copy skills from vendored source
+If it already exists, treat it as an upgrade: ensure every required skill directory exists and add any newly introduced skills that are missing.
 
-The framework includes a vendored copy of [Superpowers](https://github.com/obra/superpowers) skills in `superpowers/skills/`. Copy each of the following skills into `.cursor/skills/<skill-name>/`:
+#### 3.5.2 Copy or update skills from vendored source
+
+The framework includes a vendored copy of [Superpowers](https://github.com/obra/superpowers) skills in `superpowers/skills/`. Copy or update each of the following skills into `.cursor/skills/<skill-name>/`:
 
 | Source (`superpowers/skills/...`) | Target (`.cursor/skills/...`) | Files to Copy |
 |---|---|---|
@@ -141,9 +156,11 @@ The framework includes a vendored copy of [Superpowers](https://github.com/obra/
 
 For `systematic-debugging/`, skip test/example files (`test-academic.md`, `test-pressure-*.md`, `CREATION-LOG.md`) — only copy the core reference files listed above.
 
-#### 3.5.3 Create `.cursor/rules/superpowers-methodology.md`
+#### 3.5.3 Create or refresh `.cursor/rules/superpowers-methodology.md`
 
 Create a Cursor rule file that bridges Supervisor workflows to the installed methodology skills. Use the template from `templates/cursor-rules/superpowers-methodology.md`.
+
+If the rule already exists, refresh it from the current template so newly added skills and mappings are available.
 
 This rule tells the AI:
 - Methodology skills are available at `.cursor/skills/`
@@ -183,12 +200,12 @@ Replace these placeholders in all templates:
 
 ### Step 6: Confirm with User
 
-After setup, confirm:
+After setup or upgrade, confirm:
 
 ```markdown
 ## ✅ AI Supervisor-Worker Framework Initialized
 
-I've created the framework structure with AI IDE configurations:
+I've created or refreshed the framework structure with AI IDE configurations:
 
 ### AI IDE Configuration Files (Project Root)
 - ✅ CLAUDE.md - AI assistant instructions for this project
@@ -216,6 +233,11 @@ I've created the framework structure with AI IDE configurations:
 
 ### Methodology Bridge Rule (.cursor/rules/)
 - ✅ superpowers-methodology.md - Maps Supervisor workflows to skills
+
+### Upgrade Behavior
+- ✅ Existing framework installs were reconciled with the current source
+- ✅ Missing or newly added skills were installed into `.cursor/skills/`
+- ✅ Existing project status/tracking docs were preserved unless replacement was needed
 
 ### Project Configuration Detected
 - **Name**: [Project Name]
@@ -341,7 +363,7 @@ AI IDE configuration files help AI assistants:
 
 ## 🔄 Post-Installation
 
-After installation, the AI should:
+After installation or upgrade, the AI should:
 
 1. **Read existing project docs** (README, existing documentation)
 2. **Update AI IDE configs** with specific patterns found in codebase
@@ -364,5 +386,5 @@ After setup is complete, these commands should work:
 
 ---
 
-**Installation Guide Version**: 1.3.1  
+**Installation Guide Version**: 1.3.2  
 **Last Updated**: March 2026
