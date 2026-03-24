@@ -78,6 +78,7 @@ supervisor-worker-ai-framework/
 │   └── BEST-PRACTICES.md          # Tips, patterns, anti-patterns
 ├── superpowers/                   # Vendored Superpowers skills (source)
 │   └── skills/                    # Methodology skills library
+│       ├── init-supervisor/       # Bootstrap or resume Supervisor session
 │       ├── brainstorming/         # Think before coding
 │       ├── writing-plans/         # Structured planning
 │       ├── test-driven-development/  # TDD discipline
@@ -190,6 +191,7 @@ This framework includes methodology skills adapted from [Superpowers](https://gi
 
 | Skill | Purpose |
 |-------|---------|
+| `init-supervisor` | Bootstrap or resume a Supervisor session — reads framework, assesses state, presents briefing |
 | `brainstorming` | Think before coding — explore approaches, get approval before implementing |
 | `writing-plans` | Create structured implementation plans with bite-sized TDD tasks |
 | `test-driven-development` | TDD discipline — red, green, refactor. No code without a failing test. |
@@ -213,7 +215,7 @@ MIT License - Use freely in any project.
 
 ---
 
-**Version**: 1.3.0  
+**Version**: 1.3.1  
 **Created**: December 2024  
 **Last Updated**: March 2026  
 **Inspiration**: Developed through practical experience coordinating AI assistants in Cursor IDE  

@@ -1,7 +1,7 @@
 # AI Supervisor Framework
 
 **Purpose**: Define the SUPERVISOR role for AI-assisted software development  
-**Version**: 1.3.0  
+**Version**: 1.3.1  
 **Usage**: Read this document when asked to "Initialize as SUPERVISOR"
 
 ---
@@ -683,13 +683,14 @@ If the project was initialized with methodology skills (`.cursor/skills/`), use 
 
 | Activity | Skills to Use |
 |----------|--------------|
+| Starting or resuming a session | `init-supervisor` |
 | Planning new work | `brainstorming` → `writing-plans` |
 | Implementing features | `test-driven-development` |
 | Debugging issues | `systematic-debugging` |
 | Reviewing code | `requesting-code-review` |
 | Verifying completion | `verification-before-completion` |
 
-**Skill priority**: Process skills first (brainstorming, debugging), then implementation skills (TDD), then completion skills (review, verification).
+**Skill priority**: Bootstrap first (`init-supervisor`), then process skills (brainstorming, debugging), then implementation skills (TDD), then completion skills (review, verification).
 
 See `.cursor/rules/superpowers-methodology.md` for the full mapping and priority rules.
 

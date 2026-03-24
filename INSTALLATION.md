@@ -53,6 +53,7 @@ Create the following structure:
 │   ├── rules/
 │   │   └── superpowers-methodology.md  # Methodology bridge rule
 │   └── skills/                         # Project-level methodology skills
+│       ├── init-supervisor/
 │       ├── brainstorming/
 │       ├── writing-plans/
 │       ├── test-driven-development/
@@ -120,6 +121,7 @@ The framework includes a vendored copy of [Superpowers](https://github.com/obra/
 
 | Source (`superpowers/skills/...`) | Target (`.cursor/skills/...`) | Files to Copy |
 |---|---|---|
+| `init-supervisor/` | `init-supervisor/` | `SKILL.md` |
 | `brainstorming/` | `brainstorming/` | `SKILL.md`, `spec-document-reviewer-prompt.md`, `visual-companion.md`, `scripts/*` |
 | `writing-plans/` | `writing-plans/` | `SKILL.md`, `plan-document-reviewer-prompt.md` |
 | `test-driven-development/` | `test-driven-development/` | `SKILL.md`, `testing-anti-patterns.md` |
@@ -204,6 +206,7 @@ I've created the framework structure with AI IDE configurations:
 - ✅ DECISIONS-LOG.md - Technical decisions log
 
 ### Methodology Skills (.cursor/skills/)
+- ✅ init-supervisor - Initialize or resume a Supervisor session with situational briefing
 - ✅ brainstorming - Think before coding, explore approaches
 - ✅ writing-plans - Structured implementation planning with bite-sized tasks
 - ✅ test-driven-development - TDD discipline (red-green-refactor)
@@ -361,5 +364,5 @@ After setup is complete, these commands should work:
 
 ---
 
-**Installation Guide Version**: 1.3.0  
+**Installation Guide Version**: 1.3.1  
 **Last Updated**: March 2026

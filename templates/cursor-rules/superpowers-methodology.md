@@ -8,6 +8,7 @@ The following methodology skills are installed at `.cursor/skills/` and are auto
 
 | Skill | When to Use |
 |-------|-------------|
+| `init-supervisor` | When asked to initialize, start, or resume as Supervisor |
 | `brainstorming` | Before planning or designing — think before coding |
 | `writing-plans` | When creating structured implementation plans |
 | `test-driven-development` | When implementing any feature or bugfix — write tests first |
@@ -19,15 +20,18 @@ The following methodology skills are installed at `.cursor/skills/` and are auto
 
 When multiple skills could apply, use this order:
 
-1. **Process skills first** — these determine HOW to approach the task:
+1. **Bootstrap skill** — run first when starting a session:
+   - `init-supervisor` (when initializing or resuming as Supervisor)
+
+2. **Process skills** — these determine HOW to approach the task:
    - `brainstorming` (before any planning or design)
    - `systematic-debugging` (before any bug investigation)
    - `writing-plans` (before any implementation)
 
-2. **Implementation skills second** — these guide execution:
+3. **Implementation skills** — these guide execution:
    - `test-driven-development` (during implementation)
 
-3. **Completion skills last** — these ensure quality:
+4. **Completion skills last** — these ensure quality:
    - `requesting-code-review` (after implementation)
    - `verification-before-completion` (before marking done)
 
@@ -35,6 +39,7 @@ When multiple skills could apply, use this order:
 
 | Supervisor Activity | Use These Skills |
 |---|---|
+| Starting or resuming a session | `init-supervisor` |
 | Planning new work | `brainstorming` → `writing-plans` |
 | Implementing features | `test-driven-development` |
 | Debugging issues | `systematic-debugging` |

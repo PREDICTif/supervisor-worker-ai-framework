@@ -10,6 +10,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.3.1] - March 14, 2026
+
+### Added
+- **March 14, 2026**: `init-supervisor` skill — a bootstrap skill that initializes or re-initializes a Supervisor session
+  - Detects whether the framework is already installed (re-init) or needs fresh setup
+  - For existing projects: reads framework docs, status, tracker, and logs, then presents a situational briefing
+  - For new projects: delegates to INSTALLATION.md for full setup, then presents briefing
+  - Added to INSTALLATION.md directory structure, skills copy table, and confirmation section
+  - Added to `superpowers-methodology.md` bridge rule (available skills, priority, and activity mapping)
+  - Added to SUPERVISOR-FRAMEWORK.md methodology skills reference
+  - Added to README.md skills table and directory tree
+
+---
+
 ## [1.3.0] - March 14, 2026
 
 ### Added
