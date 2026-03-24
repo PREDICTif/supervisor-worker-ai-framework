@@ -338,10 +338,9 @@ Before doing any work:
    - Create delegation prompts
    - Update DELEGATION-TRACKER
 
-2. **If executing a plan**:
-   - Use `subagent-driven-development` skill (same session) or
-     `executing-plans` skill (parallel sessions)
-   - Workers should use `test-driven-development` skill
+2. **If implementing features**:
+   - Use `test-driven-development` skill
+   - Workers should follow red-green-refactor cycle
 
 3. **If validating completed work**:
    - Use `requesting-code-review` skill
@@ -364,7 +363,7 @@ Before doing any work:
 
 7. **If completing work**:
    - Use `verification-before-completion` skill
-   - Use `finishing-a-development-branch` skill when wrapping up a branch
+   - Run verification commands before claiming done
 ```
 
 ### Session End Protocol
@@ -685,16 +684,12 @@ If the project was initialized with methodology skills (`.cursor/skills/`), use 
 | Activity | Skills to Use |
 |----------|--------------|
 | Planning new work | `brainstorming` → `writing-plans` |
-| Executing a plan (same session) | `subagent-driven-development` |
-| Executing a plan (parallel sessions) | `executing-plans` |
 | Implementing features | `test-driven-development` |
 | Debugging issues | `systematic-debugging` |
 | Reviewing code | `requesting-code-review` |
-| Parallelizing tasks | `dispatching-parallel-agents` |
 | Verifying completion | `verification-before-completion` |
-| Finishing a branch | `finishing-a-development-branch` |
 
-**Skill priority**: Process skills first (brainstorming, debugging), then implementation skills (TDD, subagent-driven-development), then completion skills (review, verification).
+**Skill priority**: Process skills first (brainstorming, debugging), then implementation skills (TDD), then completion skills (review, verification).
 
 See `.cursor/rules/superpowers-methodology.md` for the full mapping and priority rules.
 
@@ -758,9 +753,8 @@ Ready to supervise. What would you like to focus on?
 - **Methodology Skills Reference**: New section mapping supervisor activities to specific skills
 
 ### Skills Added
-- `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`
-- `test-driven-development`, `systematic-debugging`, `requesting-code-review`
-- `verification-before-completion`, `finishing-a-development-branch`, `dispatching-parallel-agents`
+- `brainstorming`, `writing-plans`, `test-driven-development`
+- `systematic-debugging`, `requesting-code-review`, `verification-before-completion`
 
 ---
 

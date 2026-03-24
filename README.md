@@ -82,8 +82,8 @@ supervisor-worker-ai-framework/
 │       ├── writing-plans/         # Structured planning
 │       ├── test-driven-development/  # TDD discipline
 │       ├── systematic-debugging/  # Root-cause debugging
-│       ├── subagent-driven-development/  # Subagent execution
-│       └── ...                    # + more (see INSTALLATION.md)
+│       ├── requesting-code-review/  # Code review workflow
+│       └── verification-before-completion/  # Evidence-based completion
 └── templates/
     ├── CURRENT-STATUS.md          # Project health dashboard
     ├── DELEGATION-TRACKER.md      # Task tracking
@@ -190,16 +190,12 @@ This framework includes methodology skills adapted from [Superpowers](https://gi
 
 | Skill | Purpose |
 |-------|---------|
-| `brainstorming` | Think before coding — structured ideation |
-| `writing-plans` | Create structured implementation plans |
-| `executing-plans` | Execute plans across multiple sessions |
-| `subagent-driven-development` | Execute plans with subagents in the current session |
-| `test-driven-development` | TDD discipline — red, green, refactor |
-| `systematic-debugging` | Root-cause debugging methodology |
-| `requesting-code-review` | Code review workflow |
-| `verification-before-completion` | Final verification before marking done |
-| `finishing-a-development-branch` | Branch completion workflow |
-| `dispatching-parallel-agents` | Coordinate parallel work streams |
+| `brainstorming` | Think before coding — explore approaches, get approval before implementing |
+| `writing-plans` | Create structured implementation plans with bite-sized TDD tasks |
+| `test-driven-development` | TDD discipline — red, green, refactor. No code without a failing test. |
+| `systematic-debugging` | Root-cause debugging — four-phase methodology, never guess-and-fix |
+| `requesting-code-review` | Structured code review workflow with severity-categorized feedback |
+| `verification-before-completion` | Evidence-based completion — run the command, read the output, then claim done |
 
 The framework defines **what** to do (roles, delegation, tracking). The skills define **how** to do it (methodology, discipline, quality).
 

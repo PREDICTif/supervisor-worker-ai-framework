@@ -10,46 +10,36 @@ The following methodology skills are installed at `.cursor/skills/` and are auto
 |-------|-------------|
 | `brainstorming` | Before planning or designing — think before coding |
 | `writing-plans` | When creating structured implementation plans |
-| `executing-plans` | When executing plans across multiple sessions |
-| `subagent-driven-development` | When executing plans with subagents in the current session |
 | `test-driven-development` | When implementing any feature or bugfix — write tests first |
 | `systematic-debugging` | When investigating bugs — trace root causes methodically |
 | `requesting-code-review` | When reviewing code changes before merging |
 | `verification-before-completion` | Before marking any task as done |
-| `finishing-a-development-branch` | When completing work on a development branch |
-| `dispatching-parallel-agents` | When coordinating multiple parallel work streams |
 
 ## Skill Priority
 
 When multiple skills could apply, use this order:
 
 1. **Process skills first** — these determine HOW to approach the task:
-   - `brainstorming` (before any planning)
+   - `brainstorming` (before any planning or design)
    - `systematic-debugging` (before any bug investigation)
    - `writing-plans` (before any implementation)
 
 2. **Implementation skills second** — these guide execution:
    - `test-driven-development` (during implementation)
-   - `subagent-driven-development` or `executing-plans` (during plan execution)
-   - `dispatching-parallel-agents` (when parallelizing)
 
 3. **Completion skills last** — these ensure quality:
    - `requesting-code-review` (after implementation)
    - `verification-before-completion` (before marking done)
-   - `finishing-a-development-branch` (when wrapping up a branch)
 
 ## Mapping Supervisor Activities to Skills
 
 | Supervisor Activity | Use These Skills |
 |---|---|
 | Planning new work | `brainstorming` → `writing-plans` |
-| Executing a plan | `subagent-driven-development` or `executing-plans` |
 | Implementing features | `test-driven-development` |
 | Debugging issues | `systematic-debugging` |
 | Reviewing completed work | `requesting-code-review` |
 | Validating before completion | `verification-before-completion` |
-| Finishing a branch | `finishing-a-development-branch` |
-| Parallelizing tasks | `dispatching-parallel-agents` |
 
 ## Integration with Supervisor Framework
 

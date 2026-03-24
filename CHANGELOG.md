@@ -16,7 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **March 14, 2026**: Superpowers methodology skills integration
   - Vendored [Superpowers](https://github.com/obra/superpowers) (MIT, by Jesse Vincent) into `superpowers/` subfolder
   - Skills are installed as project-level Cursor skills (`.cursor/skills/`) during framework initialization — no plugin install or IDE restart needed
-  - 10 methodology skills included: brainstorming, writing-plans, executing-plans, subagent-driven-development, test-driven-development, systematic-debugging, requesting-code-review, verification-before-completion, finishing-a-development-branch, dispatching-parallel-agents
+  - 6 curated methodology skills included: brainstorming, writing-plans, test-driven-development, systematic-debugging, requesting-code-review, verification-before-completion
+  - 4 skills evaluated and excluded (redundant with Supervisor framework or platform-coupled): executing-plans, subagent-driven-development, finishing-a-development-branch, dispatching-parallel-agents
   - Created `templates/cursor-rules/superpowers-methodology.md` bridge rule template that maps Supervisor workflows to methodology skills
   - Updated INSTALLATION.md with new Step 3.5 for skill installation and supporting file copy instructions
   - Updated SUPERVISOR-FRAMEWORK.md with methodology skills reference section and skill-guided session workflow

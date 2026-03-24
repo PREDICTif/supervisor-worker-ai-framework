@@ -55,14 +55,10 @@ Create the following structure:
 │   └── skills/                         # Project-level methodology skills
 │       ├── brainstorming/
 │       ├── writing-plans/
-│       ├── executing-plans/
-│       ├── subagent-driven-development/
 │       ├── test-driven-development/
 │       ├── systematic-debugging/
 │       ├── requesting-code-review/
-│       ├── verification-before-completion/
-│       ├── finishing-a-development-branch/
-│       └── dispatching-parallel-agents/
+│       └── verification-before-completion/
 └── docs/
     └── SUPERVISOR/
         ├── SUPERVISOR-FRAMEWORK.md # Copy from framework/
@@ -126,20 +122,20 @@ The framework includes a vendored copy of [Superpowers](https://github.com/obra/
 |---|---|---|
 | `brainstorming/` | `brainstorming/` | `SKILL.md`, `spec-document-reviewer-prompt.md`, `visual-companion.md`, `scripts/*` |
 | `writing-plans/` | `writing-plans/` | `SKILL.md`, `plan-document-reviewer-prompt.md` |
-| `executing-plans/` | `executing-plans/` | `SKILL.md` |
-| `subagent-driven-development/` | `subagent-driven-development/` | `SKILL.md`, `implementer-prompt.md`, `spec-reviewer-prompt.md`, `code-quality-reviewer-prompt.md` |
 | `test-driven-development/` | `test-driven-development/` | `SKILL.md`, `testing-anti-patterns.md` |
 | `systematic-debugging/` | `systematic-debugging/` | `SKILL.md`, `root-cause-tracing.md`, `defense-in-depth.md`, `condition-based-waiting.md`, `condition-based-waiting-example.ts`, `find-polluter.sh` |
 | `requesting-code-review/` | `requesting-code-review/` | `SKILL.md`, `code-reviewer.md` |
 | `verification-before-completion/` | `verification-before-completion/` | `SKILL.md` |
-| `finishing-a-development-branch/` | `finishing-a-development-branch/` | `SKILL.md` |
-| `dispatching-parallel-agents/` | `dispatching-parallel-agents/` | `SKILL.md` |
 
-**Do NOT copy** these skills (they are platform-specific or meta):
+**Do NOT copy** these skills (platform-specific, meta, or redundant with the Supervisor framework):
 - `using-superpowers/` (plugin bootstrap — replaced by the bridge rule below)
 - `using-git-worktrees/` (orthogonal to the framework)
 - `writing-skills/` (meta-skill for creating skills)
 - `receiving-code-review/` (Claude Code specific)
+- `executing-plans/` (redundant with WORKER-FRAMEWORK.md)
+- `subagent-driven-development/` (platform-coupled orchestration; Supervisor delegation covers this)
+- `finishing-a-development-branch/` (worktree-specific; basic git workflow)
+- `dispatching-parallel-agents/` (narrow debugging tactic; Supervisor already covers parallel delegation)
 
 For `systematic-debugging/`, skip test/example files (`test-academic.md`, `test-pressure-*.md`, `CREATION-LOG.md`) — only copy the core reference files listed above.
 
@@ -208,16 +204,12 @@ I've created the framework structure with AI IDE configurations:
 - ✅ DECISIONS-LOG.md - Technical decisions log
 
 ### Methodology Skills (.cursor/skills/)
-- ✅ brainstorming - Think before coding, visual brainstorming
-- ✅ writing-plans - Structured implementation planning
-- ✅ executing-plans - Plan execution across sessions
-- ✅ subagent-driven-development - Same-session execution with subagents
+- ✅ brainstorming - Think before coding, explore approaches
+- ✅ writing-plans - Structured implementation planning with bite-sized tasks
 - ✅ test-driven-development - TDD discipline (red-green-refactor)
 - ✅ systematic-debugging - Root-cause debugging methodology
-- ✅ requesting-code-review - Code review workflow
-- ✅ verification-before-completion - Final verification before marking done
-- ✅ finishing-a-development-branch - Branch completion workflow
-- ✅ dispatching-parallel-agents - Parallel work coordination
+- ✅ requesting-code-review - Code review workflow with templates
+- ✅ verification-before-completion - Evidence-based completion verification
 
 ### Methodology Bridge Rule (.cursor/rules/)
 - ✅ superpowers-methodology.md - Maps Supervisor workflows to skills
