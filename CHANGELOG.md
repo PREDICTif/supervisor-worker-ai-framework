@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- **April 15, 2026**: Empty folder project type scaffolding
+  - When initializing the framework in an empty project folder, the AI now asks the user to choose a project type before proceeding
+  - Three project types supported: Multi-Part Study Project, Development Project (Next.js + FastAPI default), Content Writing Project
+  - Added `INSTALLATION.md` Step 0.5 for empty folder detection and project type selection
+  - Created `templates/project-types/study-project.md` — scaffolding for learning/demo repos with self-contained parts
+  - Created `templates/project-types/dev-project.md` — scaffolding for frontend + backend apps with sensible defaults
+  - Created `templates/project-types/content-project.md` — scaffolding for articles, books, courses, and documentation
+  - Updated `superpowers/skills/init-supervisor/SKILL.md` to reference the empty-folder flow during fresh initialization
+
 ---
 
 ## [1.3.2] - March 14, 2026

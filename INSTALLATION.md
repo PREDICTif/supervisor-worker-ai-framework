@@ -30,6 +30,36 @@ If those files already exist, treat the request as an **upgrade/repair pass**, n
 - Refresh `.cursor/rules/superpowers-methodology.md` from the current template
 - Preserve project-specific operating documents like `CURRENT-STATUS.md`, `DELEGATION-TRACKER.md`, `THINKING-LOG.md`, and `DECISIONS-LOG.md` unless the user explicitly asks to replace them
 
+### Step 0.5: Detect Empty Project
+
+After Step 0 determines this is a **new install** (not an upgrade), check whether the project folder is **empty** — meaning it contains no files other than `.git/`, `.gitignore`, or leftover framework files from a previous partial init.
+
+If the folder **is not empty** (has source code, `package.json`, `README.md`, etc.), skip this step and proceed to Step 1.
+
+If the folder **is empty**, the user is starting from scratch. Before gathering project info, ask them what kind of project they want to build:
+
+```
+This project folder is empty. What type of project would you like to create?
+
+A) **Multi-Part Study Project** — Several small demos/experiments inside one repo
+   (e.g., learning a subject by building progressively)
+
+B) **Development Project** — An application with frontend + backend
+   (defaults: Next.js frontend + FastAPI backend)
+
+C) **Content Writing Project** — Articles, a book, course material, or documentation
+```
+
+Based on the answer, follow the matching scaffolding template in `templates/project-types/`:
+
+| Choice | Template File | What It Creates |
+|--------|--------------|-----------------|
+| A | `templates/project-types/study-project.md` | Multi-part repo with per-part folders |
+| B | `templates/project-types/dev-project.md` | Frontend + backend project with defaults |
+| C | `templates/project-types/content-project.md` | Writing-oriented folder structure |
+
+Read the selected template and follow its instructions to scaffold the real project structure **before** continuing to Step 1. Once scaffolding is complete, the folder will have real files and Step 1 can detect project information normally.
+
 ### Step 1: Gather Project Information
 
 **IMPORTANT**: Before creating any files, gather this information from the user or by examining the project:
@@ -51,6 +81,7 @@ To set up the AI Supervisor-Worker Framework, I need:
 - Read existing `README.md` for project description
 - Look at directory structure to understand project type
 - Ask user for anything not clear from the codebase
+- If the project was just scaffolded by Step 0.5, most of this information is already known from the scaffolding template — use it directly instead of re-asking
 
 ### Step 2: Create Directory Structure
 

@@ -55,15 +55,20 @@ Then present the briefing (Step 4).
 
 ### Step 3: Fresh Initialization
 
-The framework needs to be set up first. Read `INSTALLATION.md` from the framework source and follow its complete step-by-step process:
+The framework needs to be set up first. Read `INSTALLATION.md` from the framework source and follow its complete step-by-step process.
 
-1. Gather project information (name, type, tech stack, commands)
-2. Create `docs/SUPERVISOR/` with all framework documents
-3. Generate AI IDE configuration files
-4. Install methodology skills into `.cursor/skills/`
-5. Create `.cursor/rules/superpowers-methodology.md`
-6. Customize templates with project-specific information
-7. Initialize status documents
+**Empty folder?** `INSTALLATION.md` Step 0.5 will detect if the project folder is empty (no source files, `package.json`, `README.md`, etc.). If it is, the user is asked to choose a project type — study project, development project, or content writing project — and the matching scaffolding template from `templates/project-types/` is used to create real project files before the framework setup continues. This means the framework is never initialized over a truly blank slate.
+
+Full installation steps:
+
+1. Detect empty project and scaffold if needed (Step 0.5)
+2. Gather project information (name, type, tech stack, commands)
+3. Create `docs/SUPERVISOR/` with all framework documents
+4. Generate AI IDE configuration files
+5. Install methodology skills into `.cursor/skills/`
+6. Create `.cursor/rules/superpowers-methodology.md`
+7. Customize templates with project-specific information
+8. Initialize status documents
 
 After installation completes, proceed to Step 4.
 
